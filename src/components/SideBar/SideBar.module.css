@@ -1,0 +1,59 @@
+.sidebar {
+  width: 65px;
+  height: 100vh;
+  background-color: #ffffff;
+  padding-top: 20px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sidebar:hover {
+  width: 200px;
+}
+
+
+.logo {
+  width: 25px; 
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.menu {
+  display: flex; 
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 15px;
+  white-space: nowrap; 
+  color: black;
+}
+
+.navLink {
+  display: flex; 
+  align-items: center;
+  margin-bottom: 15px;
+  text-decoration: none;
+  white-space: nowrap; 
+  color: black;
+}
+
+.navLink:hover {
+  background-color: #a0bbd7;
+  color: #f8f9fa;
+}
+
+.linkText {
+  font-size: 16px;
+  color: black;
+  margin-left: 20px; 
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.sidebar:hover .linkText {
+  opacity: 1;
+  transition-delay: 0.1s; 
+  margin-left: 20px;
+}

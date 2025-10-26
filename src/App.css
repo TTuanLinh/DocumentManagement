@@ -1,8 +1,15 @@
-/* Tạo một lớp bọc toàn bộ ứng dụng */
+.rootLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .appWrapper {
   display: flex;
-  flex-direction: row; /* Xếp các con (Sidebar và Content) theo hàng ngang */
+  flex-direction: row; /* Xếp các components theo hàng ngang */
   height: 100vh; /* Đảm bảo app cao hết màn hình */
+  overflow: hidden;
 }
 
 /* Phần nội dung chính */
@@ -12,4 +19,6 @@
   height: 100vh; /* Cao hết màn hình */
   overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
   padding: 20px;
+  border-radius: 15px;
+  border: 1px solid gray;
 }

@@ -1,30 +1,37 @@
 import React from "react";
-import { Link } from "react-router";
+import { NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import styles from './SideBar.module.css'
-import menuIcon from '../../assets/menu.png'
-import homeIcon from '../../assets/home.png'
-import accIcon from '../../assets/user.png'
+import styles from './SideBar.module.css';
+import { ReactComponent as HomeIcon } from '../../assets/home.svg';
+import { ReactComponent as UserIcon } from '../../assets/user.svg';
 
-function SideBar(){
-  return(
-    <Nav className={styles.sidebar}>
-      <Nav.Link href="#menu" className={styles.menu}>
-        <img src={menuIcon} className={styles.logo} alt="Menu"/>
-        <span className={styles.linkText}>Danh mục</span>
-      </Nav.Link>
+function SideBar() {
+  return (
+    <nav className={styles.sidebar}>
+      <Nav className={`flex-column ${styles.navContainer}`}>
 
-      <Nav.Link as={Link} to="/homepage" className={styles.navLink}>
-        <img src={homeIcon} className={styles.logo} alt="Trang chủ"/>
-        <span className={styles.linkText}>Trang chủ</span>
-      </Nav.Link>
+        <NavLink
+          to="/homepage"
+          className={({ isActive }) =>
+            `${styles.navLink} ${isActive ? styles.active : ""}`
+          }
+        >
+          <HomeIcon className={styles.logo} alt="Trang chủ" />
+          <span className={styles.linkText}>Trang chủ</span>
+        </NavLink>
 
-      <Nav.Link as={Link} to="/justanotherpage" className={styles.navLink}>
-        <img src={accIcon} className={styles.logo} alt="Hồ sơ"/>
-        <span className={styles.linkText}>Hồ sơ</span>
-      </Nav.Link>
-    </Nav>
-  )
+        <NavLink
+          to="/justanotherpage"
+          className={({ isActive }) =>
+            `${styles.navLink} ${isActive ? styles.active : ""}`
+          }
+        >
+          <UserIcon className={styles.logo} alt="Hồ sơ" />
+          <span className={styles.linkText}>Hồ sơ</span>
+        </NavLink>
+      </Nav>
+    </nav>
+  );
 }
 
 export default SideBar;

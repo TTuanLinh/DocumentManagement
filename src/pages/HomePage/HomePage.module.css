@@ -1,0 +1,86 @@
+/* DashboardContent.module.css */
+/* (Nội dung CSS y hệt như cũ, không cần thay đổi) */
+
+.HomeContent {
+  padding: 24px;
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.HomeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.HomeHeader h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #212529;
+}
+
+.addNewBtn {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addNewBtn:hover {
+  background-color: #0b5ed7;
+}
+
+.documentList table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.documentList th,
+.documentList td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.documentList th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.documentList td {
+  color: #212529;
+}
+
+.actionBtn,
+.actionBtnDanger {
+  padding: 5px 10px;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.actionBtn:hover {
+  background-color: #f1f3f5;
+}
+
+.actionBtnDanger {
+  color: #dc3545;
+}
+
+.actionBtnDanger:hover {
+  background-color: #f8d7da;
+}

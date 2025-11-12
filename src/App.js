@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 
 import SideBar from "./components/SideBar/SideBar";
 import HomePage from "./pages/HomePage/HomePage";
-import JustAnotherPage from "./pages/HomePage/JustAnotherPage";
+import Profile from "./pages/Profile/Profile";
 import AuthHeader from "./components/AuthHeader/AuthHeader";
 import RightColumn from "./components/RightColumn/RightColumn";
 
@@ -12,17 +12,17 @@ function App(){
   return(
     <BrowserRouter>
       <div className="rootLayout">
-        <AuthHeader></AuthHeader>
+        <AuthHeader />
         <div className="appWrapper">
-          <SideBar></SideBar>
+          <SideBar />
           <main className="mainContent">
             <Routes>
-              <Route path="/" element={<HomePage></HomePage>} />
-              <Route path="/homepage" element={<HomePage></HomePage>} />
-              <Route path="/justanotherpage" element={<JustAnotherPage></JustAnotherPage>} />
+              <Route path="/" element={<Navigate to="/homepage" replace />} />
+              <Route path="/homepage" element={<HomePage />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
-          <RightColumn></RightColumn>
+          <RightColumn />
         </div>
       </div>
     </BrowserRouter>

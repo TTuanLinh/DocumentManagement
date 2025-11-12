@@ -5,15 +5,15 @@
   padding-top: 20px;
   transition: width 0.3s ease;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
+.navContainer {
+  height: fit-content;
+}
 
 .sidebar:hover {
-  width: 200px;
+  width: 230px;
 }
-
 
 .logo {
   width: 25px; 
@@ -28,28 +28,40 @@
   margin-bottom: 15px;
   white-space: nowrap; 
   color: black;
+  padding: 0.5rem 1rem; 
 }
 
 .navLink {
   display: flex; 
+  height: 50px;
   align-items: center;
   margin-bottom: 15px;
   text-decoration: none;
   white-space: nowrap; 
   color: black;
+  padding: 0.5rem 1rem; 
 }
 
 .navLink:hover {
-  background-color: #a0bbd7;
-  color: #f8f9fa;
+  background-color: #e0f2fe;
+  border-radius: 8px;
 }
 
 .linkText {
   font-size: 16px;
+  font-weight: 600;
   color: black;
   margin-left: 20px; 
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
+}
+
+.navLink:hover .linkText {
+  color: #4b74eb;
+}
+
+.navLink:hover svg {
+  fill: #4b74eb;
 }
 
 .sidebar:hover .linkText {
@@ -57,3 +69,15 @@
   transition-delay: 0.1s; 
   margin-left: 20px;
 }
+
+.active {
+  background-color: #e0f2fe;
+  border-radius: 8px;
+}
+
+.active .linkText {
+  color: #4b74eb;
+  font-weight: 600;
+}
+
+.active svg { fill: #4b74eb; }

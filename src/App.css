@@ -14,7 +14,7 @@
 
 /* Phần nội dung chính */
 .mainContent {
-  background-color: beige;
+  background-color: #f9fafb;
   flex-grow: 1; /* Chiếm hết phần không gian còn lại */
   height: 100vh; /* Cao hết màn hình */
   overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */

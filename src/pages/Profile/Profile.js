@@ -1,7 +1,7 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import React from "react";
 
-function JustAnotherPage() {
+function Profile() {
   return (
     <Container>
       <Row>
@@ -11,4 +11,4 @@ function JustAnotherPage() {
   )
 }
 
-export default JustAnotherPage;
+export default Profile;

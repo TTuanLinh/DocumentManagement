@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar, Nav, Button, Badge } from 'react-bootstrap';
-import { ethers } from 'ethers'; // Import ethers
 
 // Hàm tiện ích để rút gọn địa chỉ ví
 function shortenAddress(address) {
@@ -8,50 +7,7 @@ function shortenAddress(address) {
   return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
 }
 
-function AuthHeader() {
-  const [currentAccount, setCurrentAccount] = useState(null);
-
-  // 1. Hàm kiểm tra xem ví đã kết nối chưa
-  const checkIfWalletIsConnected = async () => {
-    const { ethereum } = window;
-    if (!ethereum) {
-      console.log("Bạn cần cài đặt MetaMask!");
-      return;
-    }
-    
-    // Lấy danh sách tài khoản
-    const accounts = await ethereum.request({ method: 'eth_accounts' });
-
-    if (accounts.length !== 0) {
-      setCurrentAccount(accounts[0]); // Đặt tài khoản nếu đã có
-    } else {
-      console.log("Chưa có tài khoản nào được kết nối.");
-    }
-  };
-
-  // 2. Hàm kết nối ví khi nhấn nút
-  const connectWallet = async () => {
-    try {
-      const { ethereum } = window;
-      if (!ethereum) {
-        alert("Bạn cần cài đặt MetaMask!");
-        return;
-      }
-      
-      // Yêu cầu kết nối ví
-      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      
-      setCurrentAccount(accounts[0]); // Đặt tài khoản sau khi kết nối
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // 3. Chạy hàm kiểm tra 1 lần khi component được tải
-  useEffect(() => {
-    checkIfWalletIsConnected();
-  }, []); // Mảng rỗng đảm bảo nó chỉ chạy 1 lần
-
+function AuthHeader({currentAccount, connectWallet}) {
   return (
     <Navbar bg="white" variant="white" expand="lg">
       <Navbar.Brand href="#home" className="ms-3">

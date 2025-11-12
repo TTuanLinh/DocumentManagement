@@ -1,0 +1,122 @@
+/* UploadModal.module.css */
+
+.modalBackdrop {
+  position: fixed; /* Che toàn bộ màn hình */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Lớp nền mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Hiển thị lên trên mọi thứ */
+}
+
+.modalContent {
+  background-color: white;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #dee2e6; /* Giống viền của Dashboard */
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #212529;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.modalBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Khoảng cách giữa các form-group */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Khoảng cách giữa label và input */
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box; /* Quan trọng để padding không làm vỡ layout */
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #0d6efd; /* Highlight màu xanh khi focus */
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.formHint {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end; /* Căn nút sang phải */
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa; /* Nền xám nhạt như header bảng */
+}
+
+/* Kiểu chung cho 2 nút */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Nút "Tải lên" (màu xanh) */
+.btnPrimary {
+  background-color: #0d6efd; /* Màu xanh */
+  color: white;
+}
+.btnPrimary:hover {
+  background-color: #0b5ed7;
+}
+
+/* Nút "Hủy" (màu xám) */
+.btnSecondary {
+  background-color: #6c757d;
+  color: white;
+}
+.btnSecondary:hover {
+  background-color: #5a6268;
+}

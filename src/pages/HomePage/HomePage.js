@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'; // 1. Thêm useEffect và useCallback
 import styles from './HomePage.module.css'; 
 import UploadModal from './UploadModal/UploadModal';
+import ViewModal from './ViewModal/ViewModal';
 import { BrowserProvider, Contract } from 'ethers'; // 2. Import Ethers v6
 import contractAbi from '../../abi.json'; // 3. Import ABI
 
@@ -13,6 +14,9 @@ function HomePage({ currentAccount, connectWallet }) {
   // 5. STATE MỚI ĐỂ LƯU DANH SÁCH GIẤY TỜ VÀ TRẠNG THÁI TẢI
   const [documents, setDocuments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [showViewModal, setShowViewModal] = useState(false);
+  const [selectedDoc, setSelectedDoc] = useState(null);
 
   // 6. TẠO HÀM TẢI DỮ LIỆU
   // Chúng ta dùng useCallback để hàm này ổn định, tránh render lại không cần thiết
@@ -36,7 +40,14 @@ function HomePage({ currentAccount, connectWallet }) {
       // Ethers v6 trả về kết quả là một Mảng các "Struct"
       // Chúng ta có thể cần "dọn dẹp" nó một chút nếu cần
       console.log('Tải về:', docs);
-      setDocuments(docs);
+      const formattedDocs = docs.map(doc => ({
+        id: Number(doc.id), // Chuyển đổi
+        docName: doc.docName,
+        docType: doc.docType,
+        ipfsHash: doc.ipfsHash,
+        uploadTime: Number(doc.uploadTime) // Chuyển đổi
+      }));
+      setDocuments(formattedDocs);
 
     } catch (error) {
       console.error("Lỗi khi tải danh sách giấy tờ:", error);
@@ -69,6 +80,11 @@ function HomePage({ currentAccount, connectWallet }) {
     loadDocuments(); // Tải lại dữ liệu
   };
 
+  const handleViewClick = (doc) => {
+    setSelectedDoc(doc); // Lưu lại tài liệu đã chọn
+    setShowViewModal(true); // Mở ViewModal
+  };
+
   // 9. HÀM RENDER NỘI DUNG BẢNG
   const renderTableBody = () => {
     if (isLoading) {
@@ -89,16 +105,15 @@ function HomePage({ currentAccount, connectWallet }) {
 
     // Lặp qua mảng dữ liệu
     return documents.map((doc) => (
-      // Ethers v6 trả về BigInt, cần dùng Number()
-      <tr key={Number(doc.id)}> 
+      <tr key={doc.id}> 
         <td>{doc.docName}</td>
         <td>{doc.docType}</td>
         <td>
           {/* Chuyển đổi timestamp (giây) sang ngày tháng */}
-          {new Date(Number(doc.uploadTime) * 1000).toLocaleDateString()}
+          {new Date(doc.uploadTime * 1000).toLocaleDateString()}
         </td>
         <td>
-          <button className={styles.actionBtn}>Xem</button>
+          <button className={styles.actionBtn} onClick={() => handleViewClick(doc)}>Xem</button>
           <button className={styles.actionBtnDanger}>Xóa</button>
         </td>
       </tr>
@@ -135,6 +150,11 @@ function HomePage({ currentAccount, connectWallet }) {
         show={showUploadModal} 
         onHide={() => setShowUploadModal(false)} 
         onUploadSuccess={handleUploadSuccess} // 11. TRUYỀN PROP MỚI
+      />
+      <ViewModal 
+        show={showViewModal}
+        onHide={() => setShowViewModal(false)}
+        doc={selectedDoc} // Truyền tài liệu đã chọn vào
       />
     </div>
   );

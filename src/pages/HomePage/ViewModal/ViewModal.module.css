@@ -1,0 +1,133 @@
+/* ViewModal.module.css */
+/* Bạn có thể copy phần lớn từ UploadModal.module.css */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.modalBody {
+  padding: 24px;
+}
+
+.docInfo {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.errorText {
+  color: #dc3545; /* Màu đỏ */
+}
+
+.loadingContainer {
+  text-align: center;
+  padding: 20px;
+}
+
+.decryptedArea {
+  margin-top: 16px;
+}
+
+.decryptedImage {
+  max-width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.downloadLink {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background-color: #0d6efd;
+  color: white;
+}
+.btnPrimary:hover {
+  background-color: #0b5ed7;
+}
+
+.btnSecondary {
+  background-color: #6c757d;
+  color: white;
+}
+.btnSecondary:hover {
+  background-color: #5a6268;
+}
